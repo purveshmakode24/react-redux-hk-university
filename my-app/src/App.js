@@ -1,16 +1,11 @@
 import React, { useState, Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 
 import {
   Jumbotron,
   Button,
   Navbar,
   NavbarBrand,
-  Nav,
-  Collapse,
-  NavItem,
-  NavLink,
-  NavbarToggler
 } from 'reactstrap';
 
 import MenuComponent from './components/MenuComponent';
@@ -24,20 +19,20 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.toggle = this.toggle.bind(this)
+    // this.toggle = this.toggle.bind(this)
 
     this.state = {
       dishes: DISHES,
-      isOpen: false
+      // isOpen: false
     };
 
   }
 
-  toggle() {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
-  }
+  // toggle() {
+  //   this.setState({
+  //     isOpen: !this.state.isOpen
+  //   });
+  // }
 
 
 
@@ -51,8 +46,8 @@ class App extends Component {
       <div>
         <Navbar color="light" light expand="md">
           <NavbarBrand href="/">reactstrap</NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
+          {/* <NavbarToggler onClick={this.toggle} /> */}
+          {/* <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="mr-auto" navbar>
               <NavItem>
                 <NavLink href="/components/">Components</NavLink>
@@ -61,7 +56,7 @@ class App extends Component {
                 <NavLink href="https://github.com/purveshmakode24" target="_blank">GitHub</NavLink>
               </NavItem>
             </Nav>
-          </Collapse>
+          </Collapse> */}
         </Navbar>
         <Jumbotron className="center-jumbo">
           <h1 className="display-3">Hello, world!</h1>
