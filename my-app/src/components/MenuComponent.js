@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
+import { Card, CardImg, CardImgOverlay, CardTitle } from 'reactstrap';
 
-import DishdetailComponent from './DishdetailComponent'
+import Dishdetail from './DishdetailComponent'
 
-export default class MenuComponent extends Component {
+class MenuComponent extends Component {
 
     constructor(props) {
         super(props);
@@ -19,18 +19,6 @@ export default class MenuComponent extends Component {
         });
     }
 
-    renderDish(dish) {
-        if (dish != null) {
-            return (
-                <DishdetailComponent dish={dish} />
-            )
-        } else {
-            return (
-                <div></div>
-            )
-        }
-    }
-
     render() {
 
         const menu = this.props.dishes.map((dish) => {
@@ -40,7 +28,6 @@ export default class MenuComponent extends Component {
                         <CardImg width="100%" src={dish.image} alt={dish.name} />
                         <CardImgOverlay>
                             <CardTitle>{dish.name}</CardTitle>
-
                         </CardImgOverlay>
                     </Card>
                 </div>
@@ -53,9 +40,12 @@ export default class MenuComponent extends Component {
                     {menu}
                 </div>
 
-                {this.renderDish(this.state.selectedDish)}
+                <Dishdetail dish={this.state.selectedDish} />
 
             </div>
         )
     }
 }
+
+
+export default MenuComponent;
