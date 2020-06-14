@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import Home from './HomeComponent';
+import About from './AboutComponent';
 import MenuComponent from './MenuComponent';
 import Contact from './ContactComponent';
 import Dishdetail from './DishdetailComponent';
@@ -23,15 +24,9 @@ class MainComponent extends Component {
       comments: COMMENTS,
       leaders: LEADERS,
       promotions: PROMOTIONS
-      // selectedDish: null,
     };
   }
 
-  // onDishSelect(dishId) {
-  //   this.setState({
-  //     selectedDish: dishId
-  //   });
-  // }
 
   render() {
 
@@ -57,6 +52,7 @@ class MainComponent extends Component {
 
         <Switch>
           <Route path="/home" component={HomePage} />
+          <Route exact path="/aboutus" component={() => <About leaders={this.state.leaders} />} />
           <Route exact path="/menu" component={() => <MenuComponent dishes={this.state.dishes} />} />
           <Route path="/menu/:dishId" component={DishWithId} />
           <Route exact path="/contactus" component={Contact} />
