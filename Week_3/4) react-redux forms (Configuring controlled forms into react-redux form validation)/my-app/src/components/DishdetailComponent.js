@@ -1,4 +1,4 @@
-// Using Functional Components (functional component is a main comonent here)
+// Using Functional Components (functional component is a main component here)
 
 import React, { Component } from 'react'
 import {
@@ -43,7 +43,7 @@ class CommentForm extends Component {
     handleSubmit(values) {
         this.toggleModal();
         console.log('Current State is: ' + JSON.stringify(values));
-        alert('Current State is: ' + JSON.stringify(values)); 
+        alert('Current State is: ' + JSON.stringify(values));
     }
 
     render() {
