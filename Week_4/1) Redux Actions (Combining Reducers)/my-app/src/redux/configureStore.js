@@ -17,8 +17,7 @@ export const ConfigureStore = () => {
             promotions: Promotions,
             leaders: Leaders
         })
-   );
+    );
 
-
-return store;
+    return store;
 }
