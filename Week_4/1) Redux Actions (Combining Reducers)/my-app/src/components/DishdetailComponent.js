@@ -42,8 +42,9 @@ class CommentForm extends Component {
 
     handleSubmit(values) {
         this.toggleModal();
-        console.log('Current State is: ' + JSON.stringify(values));
-        alert('Current State is: ' + JSON.stringify(values));
+        // console.log('Current State is: ' + JSON.stringify(values));
+        // alert('Current State is: ' + JSON.stringify(values));
+        this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
     }
 
     render() {
@@ -149,7 +150,7 @@ function RenderDish({ dish }) {
 }
 
 
-function RenderComments({ comments }) {
+function RenderComments({ comments, addComment, dishId }) {
     if (comments != null) {
         const commentslist = comments.map((comment) => {
             return (
@@ -177,7 +178,7 @@ function RenderComments({ comments }) {
                     <ul className="list-unstyled">
                         {commentslist}
                     </ul>
-                    <CommentForm />  {/* Comment Form for the current dish that you have clicked (for each dish there will be different comment form)*/}
+                    <CommentForm dishId={dishId} addComment={addComment} />  {/* Comment Form for the current dish that you have clicked (for each dish there will be different comment form)*/}
                 </div>
             </div >
         )
@@ -190,7 +191,10 @@ function RenderComments({ comments }) {
 const Dishdetail = (props) => {
     if (props.dish != null) {
         const dishViewSection = <RenderDish dish={props.dish} />
-        const commentsSection = <RenderComments comments={props.comments} />
+        const commentsSection = <RenderComments comments={props.comments}
+            addComment={props.addComment}
+            dishId={props.dish.id}
+        />
         return (
             <div className="container">
                 <div className="row">
